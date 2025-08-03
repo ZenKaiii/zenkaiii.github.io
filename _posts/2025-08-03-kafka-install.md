@@ -54,6 +54,8 @@ PS D:\softwarelkafka 2.12-3.5.0>.\bin\windows\kafka-server-start.bat
 
 ## 2. Kafka实践
 
+代码参考：https://github.com/ZenKaiii/kafka_go_demo
+
 本实验使用kafka-go三方组件，应该是目前go语言业界最优解
 
 ``````bash
