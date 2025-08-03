@@ -13,7 +13,9 @@ tags:
 
 > “Yeah It's on. ”
 
-# Kafka安装
+# Kafka本地安装实践
+
+## 1. Kafka安装
 
 下载链接https://archive.apache.org/dist/kafka/.3.5.0/,下载kafka2.12
 3.5.0.tgz。
@@ -50,3 +52,16 @@ PS D:\softwarelkafka 2.12-3.5.0>.\bin\windows\kafka-server-start.bat
 
 
 
+## 2. Kafka实践
+
+本实验使用kafka-go三方组件，应该是目前go语言业界最优解
+
+``````bash
+go get github.com/segmentio/kafka-go
+``````
+
+编写好kafka producer和consumer，通过go run命令在本地开多终端启动三个consumer和一个producer。
+
+实验发现，当我们启动好三个consumer与一个producer时，发现，其中一个consumer一直未收到消息，另外两个consumer正常接收，这是因为我们刚刚配置的num.partitions=2，代表kafka server只开启两个分区，因此第三个consumer接收不到。
+
+![kafka_consumer](/img/in-post/kafka-demo/kafka_consumer.png)
